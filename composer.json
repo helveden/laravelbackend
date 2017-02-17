@@ -17,7 +17,7 @@
     "autoload": {
         "psr-0": {
             "App\\": "app/",
-            "Helveden\\LBE\\": "helveden/laravelbackend/src/"
+            "Helveden\\LBE\\": "src/"
         }
     },
     "minimum-stability" : "dev",
