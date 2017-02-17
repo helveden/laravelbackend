@@ -94,7 +94,7 @@ class TableController extends Controller
         Schema::rename($table, $rename);
 
         return redirect()->action(
-            'Back\\TableController@show', ['table' => $rename]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => $rename]
         );
     }
 
@@ -113,7 +113,7 @@ class TableController extends Controller
         });
 
         return redirect()->action(
-            'Back\\TableController@show', ['table' => $request['table']]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => $request['table']]
         );
     }
 
@@ -126,7 +126,7 @@ class TableController extends Controller
         File::delete($file);
 
         return redirect()->action(
-            'Back\\TableController@index', []
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@index', []
         );
     }
 
@@ -138,7 +138,7 @@ class TableController extends Controller
         });
 
         return redirect()->action(
-            'Back\\TableController@show', ['table' => $table]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => $table]
         );
     }
 
@@ -150,7 +150,7 @@ class TableController extends Controller
         });
 
         return redirect()->action(
-            'Back\\TableController@show', ['table' => $table]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => $table]
         );
     }
 
@@ -173,7 +173,7 @@ class TableController extends Controller
         }
 
         return redirect()->action(
-            'Back\\TableController@show', ['table' => $tablename]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => $tablename]
         );
     }
 
@@ -192,7 +192,7 @@ class TableController extends Controller
         }
 
         return redirect()->action(
-            'Back\\TableController@show', ['table' => $tablename]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => $tablename]
         );
     }
 
@@ -219,7 +219,7 @@ class TableController extends Controller
         }
 
         return redirect()->action(
-            'Back\\TableController@updateModel', ['table' => $model]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@updateModel', ['table' => $model]
         );
     }
 
@@ -228,7 +228,7 @@ class TableController extends Controller
         updateModel($table);
 
         return redirect()->action(
-            'Back\\TableController@show', ['table' => $table]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => $table]
         );
     }
 
@@ -238,7 +238,7 @@ class TableController extends Controller
         File::delete($file);
 
         return redirect()->action(
-            'Back\\TableController@show', ['table' => $table]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => $table]
         );
     }
 }

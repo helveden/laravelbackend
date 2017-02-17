@@ -1,8 +1,8 @@
 <?php 
-// , 'middleware' => 'auth'
+// , 'middleware' => 'auth.basic'
 $path = config('laravelbackend.path');
 
-Route::group(['namespace' => 'Helveden\LBE\Http\Controllers', 'prefix' => $path], function () {
+Route::group(['namespace' => 'Helveden\LBE\Http\Controllers', 'middleware' => 'auth.basic', 'prefix' => $path], function () {
 
     Route::resource('/', 'BackController', [
         'only'  => [
