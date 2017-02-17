@@ -1,6 +1,8 @@
 <?php 
 // , 'middleware' => 'auth'
-Route::group(['namespace' => 'Helveden\LBE\Http\Controllers', 'prefix' => 'back'], function () {
+$path = config('laravelbackend.path');
+
+Route::group(['namespace' => 'Helveden\LBE\Http\Controllers', 'prefix' => $path], function () {
 
     Route::resource('/', 'BackController', [
         'only'  => [
