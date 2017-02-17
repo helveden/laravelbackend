@@ -1,6 +1,6 @@
 <?php 
-
-Route::group(['namespace' => 'Helveden\LBE\Src\Http\Controllers', 'middleware' => 'auth', 'prefix' => 'back'], function () {
+// , 'middleware' => 'auth'
+Route::group(['namespace' => 'Helveden\LBE\Http\Controllers', 'prefix' => 'back'], function () {
 
     Route::resource('/', 'BackController', [
         'only'  => [
