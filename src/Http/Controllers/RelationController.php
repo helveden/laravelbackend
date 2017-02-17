@@ -1,6 +1,6 @@
 <?php 
 
-namespace Helveden\LBE\Src\Http\Controllers\Back;
+namespace Helveden\LBE\Http\Controllers\Back;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
