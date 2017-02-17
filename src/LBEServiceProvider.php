@@ -8,13 +8,15 @@ class LBEServiceProvider extends ServiceProvider {
 	
 	protected $defer = false;
  
-    public function boot()
-    {
+    public function boot() {
+        $racine = dirname(__DIR__);
+
         // Get namespace
         $nameSpace = $this->app->getNamespace();
  
         // Routes
-         $this->loadRoutesFrom(__DIR__);
+        $this->loadRoutesFrom($racine.'/routes/web.php');
+
         // $this->app->router->group(['namespace' => $nameSpace . 'Http\Controllers'], function()
         // {
         //     require __DIR__.'/Http/routes.php';
