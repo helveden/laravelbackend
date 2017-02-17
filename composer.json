@@ -15,9 +15,6 @@
         "psr/log": "~1.0"
     },
     "autoload": {
-        "classmap": [
-            "helveden"
-        ],
         "psr-0": {
             "App\\": "app/",
             "Helveden\\LBE\\": "helveden/laravelbackend/src/"
