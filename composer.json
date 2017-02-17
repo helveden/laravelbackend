@@ -16,7 +16,7 @@
     },
     "autoload": {
         "classmap": [
-            "database"
+            "helveden"
         ],
         "psr-0": {
             "App\\": "app/",
