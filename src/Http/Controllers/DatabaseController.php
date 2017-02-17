@@ -1,6 +1,6 @@
 <?php 
 
-namespace Helveden\LBE\Http\Controllers\Back;
+namespace Helveden\LBE\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
