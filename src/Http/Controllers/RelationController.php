@@ -5,6 +5,9 @@ namespace Helveden\LBE\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\RelationRepo;
+use Illuminate\Database\Schema\Blueprint;
+use Schema;
+
 
 class RelationController extends Controller  {
 	
@@ -14,6 +17,20 @@ class RelationController extends Controller  {
 
 	public function create(){
 
+        if (!Schema::hasTable('relation')) {
+            Schema::create('relation', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('table');
+                $table->string('relation');
+                $table->string('foreign_key');
+                $table->string('class');
+                $table->string('other_key');
+            });
+        }
+
+        return redirect()->action(
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => 'relation']
+        );
 	}
 
 	public function show($id){
@@ -27,7 +44,7 @@ class RelationController extends Controller  {
 		$relationrepo->store($request);
 
         return redirect()->action(
-            'Back\\TableController@show', ['table' => $request['table']]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => $request['table']]
         );
 	}
 
@@ -37,7 +54,7 @@ class RelationController extends Controller  {
 		$relationrepo->update($id, $request);
 		
         return redirect()->action(
-            'Back\\TableController@show', ['table' => $request['table']]
+            '\\Helveden\\LBE\\Http\\Controllers\\TableController@show', ['table' => $request['table']]
         );
 	}
 

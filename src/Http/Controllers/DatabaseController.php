@@ -3,12 +3,22 @@
 namespace Helveden\LBE\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Schema;
 
 class DatabaseController extends Controller  {
 	
 	public function index(){
 
-        return view('back.database.index', []);
+        $data = array();
+
+        $data['relation'] = true;
+        
+        if (!Schema::hasTable('relation')) {
+            $data['relation'] = false;
+        }
+
+
+        return view('back.database.index', $data);
 	}
 	
 }

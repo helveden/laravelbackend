@@ -9,6 +9,7 @@ class LBEServiceProvider extends ServiceProvider {
 	protected $defer = false;
  
     public function boot() {
+
         $racine = dirname(__DIR__);
 
         // Get namespace
@@ -30,5 +31,8 @@ class LBEServiceProvider extends ServiceProvider {
         // ]);
     }
  
-    public function register() {}
+    public function register() {
+        
+    }
+
 }
