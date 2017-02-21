@@ -9,7 +9,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Schema;
 
 
-class RelationController extends Controller  {
+class RelationController extends LaravelBackendController  {
 	
 	public function index(){
 		$relationrepo = new RelationRepo();

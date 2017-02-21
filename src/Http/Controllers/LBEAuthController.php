@@ -4,10 +4,16 @@ namespace Helveden\LBE\Http\Controllers;
 
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class LBEAuthController extends Controller {
+class LBEAuthController extends LaravelBackendController {
 	
     use AuthenticatesUsers;
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function login()
     {
@@ -25,6 +31,7 @@ class LBEAuthController extends Controller {
             return $this->sendLockoutResponse($request);
         }
         $credentials = $this->credentials($request);
+        
         if ($this->guard()->attempt($credentials, $request->has('remember'))) {
             return $this->sendLoginResponse($request);
         }

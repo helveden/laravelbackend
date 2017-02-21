@@ -27,7 +27,7 @@
                                             @foreach($tables as $table)
                                                 @continue( $table->Tables_in_laravel_voyager == 'migrations' )
                                                 @continue( $table->Tables_in_laravel_voyager == 'password_resets' )
-                                                @continue( $table->Tables_in_laravel_voyager == 'relation' )
+                                                {{-- @continue( $table->Tables_in_laravel_voyager == 'relation' ) --}}
                                                 {{-- @continue( $table->Tables_in_laravel_voyager == 'users' ) --}}
                                                 
                                                 <tr>

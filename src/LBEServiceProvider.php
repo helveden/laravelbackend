@@ -8,13 +8,24 @@ class LBEServiceProvider extends ServiceProvider {
 	
 	protected $defer = false;
  
-    public function boot() {
+    public function boot(\Illuminate\Routing\Router $router) {
 
         $racine = dirname(__DIR__);
 
         // Get namespace
         $nameSpace = $this->app->getNamespace();
  
+        $router->middleware('admin.user', 'Helveden\LBE\Middleware\LBEAdminMiddleware');
+
+        // $this->app->make('Helveden\LBE\Controllers\VoyagerAuthController');
+        // $this->app->make('TCG\Voyager\Controllers\VoyagerDatabaseController');
+
+        // $this->app->booting(function() {
+        //     $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        //     $loader->alias('Menu', 'TCG\Voyager\Models\Menu');
+        //     $loader->alias('Voyager', 'TCG\Voyager\Voyager');
+        // });
+        
         // Routes
         $this->loadRoutesFrom($racine.'/routes/web.php');
 
@@ -22,7 +33,7 @@ class LBEServiceProvider extends ServiceProvider {
         // {
         //     require __DIR__.'/Http/routes.php';
         // });
- 
+    
         // Views
         // $this->publishes([
         //     __DIR__.'/../views' => base_path('resources/views'),

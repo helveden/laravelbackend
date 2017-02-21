@@ -5,7 +5,7 @@ namespace Helveden\LBE\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Schema;
 
-class DatabaseController extends Controller  {
+class DatabaseController extends LaravelBackendController  {
 	
 	public function index(){
 
@@ -16,8 +16,7 @@ class DatabaseController extends Controller  {
         if (!Schema::hasTable('relation')) {
             $data['relation'] = false;
         }
-
-
+        
         return view('back.database.index', $data);
 	}
 	

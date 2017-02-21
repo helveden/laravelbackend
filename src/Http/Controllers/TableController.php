@@ -19,7 +19,7 @@ use App\Repositories\RelationRepo;
  *
  */
 
-class TableController extends Controller
+class TableController extends LaravelBackendController
 {
 
     public function index()

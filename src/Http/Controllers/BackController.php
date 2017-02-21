@@ -2,14 +2,12 @@
 
 namespace Helveden\LBE\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 // use Illuminate\Routing\Route;
-use Auth, Session, Redirect;
+use Auth, Redirect;
 
-class BackController extends Controller  {
-
+class BackController extends LaravelBackendController  {
+    
 	public function index(){
-		
         return view('back.back', []);
 	}
 
@@ -18,8 +16,6 @@ class BackController extends Controller  {
 		// Session::flush();
 		Auth::logout();
 		// auth()->logout();
-
-    	return Redirect::to(preg_replace("/:\/\//", "://log-me-out:fake-pwd@", url('/')));
 	}
 	
 }
