@@ -123,6 +123,7 @@ class TableController extends LaravelBackendController
         Schema::dropIfExists($table);
 
         $file = app_path().'/'.ucfirst($table).'.php';
+        
         File::delete($file);
 
         return redirect()->action(
@@ -186,8 +187,9 @@ class TableController extends LaravelBackendController
             if (!empty($request['column'])) {
                 $columns    = $request['column'];
                 $oldcolumns = $request['oldcolumn'];
-
+                
                 updateColumn($tablename, $columns, $oldcolumns);
+                
             }
         }
 
