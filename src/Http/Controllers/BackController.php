@@ -10,12 +10,5 @@ class BackController extends LaravelBackendController  {
 	public function index(){
         return view('back.back', []);
 	}
-
-	public function logout(){
-		
-		// Session::flush();
-		Auth::logout();
-		// auth()->logout();
-	}
 	
 }

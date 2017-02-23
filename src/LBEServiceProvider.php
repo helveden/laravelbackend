@@ -14,8 +14,6 @@ class LBEServiceProvider extends ServiceProvider {
 
         // Get namespace
         $nameSpace = $this->app->getNamespace();
- 
-        $router->middleware('admin.user', 'Helveden\LBE\Middleware\LBEAdminMiddleware');
 
         // $this->app->make('Helveden\LBE\Controllers\VoyagerAuthController');
         // $this->app->make('TCG\Voyager\Controllers\VoyagerDatabaseController');
