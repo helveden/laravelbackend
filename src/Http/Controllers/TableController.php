@@ -62,7 +62,7 @@ class TableController extends LaravelBackendController
 
             // get relation
             if($data['file']){
-                 $data['relations'] = Relation::where('table', $table)->get();
+                $data['relations'] = Relation::where('table', $table)->get();
             }
             
             // get content and if users

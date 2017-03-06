@@ -2,7 +2,7 @@
 
 namespace Helveden\LBE\Http\Controllers;
 
-class HomeController {
+class HomeController extends LaravelBackendController  {
 	
 	public function __construct() {
 		
