@@ -14,15 +14,20 @@
 					
                     <div class="content-wrapper">
                     	<div class="content-header">
-				            <h1>Database</h1>
+				            <h1>Menu</h1>
 				            @include('back.common.breadcrumb')
                     	</div>
 	                    <div class="content body">
 		                    <div class="row">
 		                    	<div class="col-md-10">
-			                        @if($relation == false)
-			                            <a href="{{ route('relation.create')}}">Créer la table relation dans la base de donnée</a>
-			                        @endif
+									@if(!$menus->isEmpty())
+										@foreach($menus as $menu)
+											{{ $menu }}
+										@endforeach
+									@else
+										<p>Aucun menus</p>
+			                            <a href="{{ route('menu.create')}}">Créer la table relation dans la base de donnée</a>
+									@endif
 			                    </div>
 		                    </div>
 		    			</div>

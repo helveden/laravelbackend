@@ -1,4 +1,4 @@
-<ul class="breadcrumb">
+<ol class="breadcrumb">
 	@foreach(Request::segments() as $segment => $path)
 		<li class="breadcrumb-item">
 			@if(count(Request::segments()) == ($segment + 1))
@@ -8,4 +8,4 @@
 			@endif
 		</li>
 	@endforeach
-</ul>
+</ol>

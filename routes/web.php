@@ -4,12 +4,7 @@ $path = config('laravelbackend.path');
 
 Route::group(['middleware' => ['web']], function () use ($path) {
 
-    Route::get($path.'/login', 'Helveden\LBE\Http\Controllers\LBEAuthController@login')->name($path.'_login');
-    Route::post($path.'/login', 'Helveden\LBE\Http\Controllers\LBEAuthController@postlogin')->name($path.'_postLogin');
-
     Route::group(['namespace' => 'Helveden\LBE\Http\Controllers', 'prefix' => $path], function () use ($path) {
-
-        Route::get('/logout', 'LBEAuthController@logout')->name($path.'_logout');
 
         Route::resource('/', 'BackController', [
                 'only'  => [
@@ -25,19 +20,27 @@ Route::group(['middleware' => ['web']], function () use ($path) {
                 'only'  => [
                     'index',
                     'create',
+                    'edit',
+                    'store',
                     'show',
                     'update',
-                    'delete',
+                    'destroy',
                 ],
                 'names' => [
-                    'index' => 'menu_index',
-                    'create',
-                    'show',
-                    'update',
-                    'delete',
+                    'index' => 'menu',
+                    'create' => 'menu.create',
+                    'edit' => 'menu.edit',
+                    'store' => 'menu.store',
+                    'show' => 'menu.show',
+                    'update' => 'menu.update',
+                    'destroy' => 'menu.destroy',
                 ],
             ]
         );
+
+        Route::get('/menu/{id}/item/edit', 'MenuController@itemEdit')->name('menu.item.edit');
+        Route::post('/menu/{id}/item/store', 'MenuController@itemStore')->name('menu.item.store');
+        Route::post('/menu/{id}/item/update', 'MenuController@itemUpdate')->name('menu.item.update');
 
         Route::resource('/entity/{class}/{id}', 'EntityController', [
                 'only' => [
@@ -114,7 +117,16 @@ Route::group(['middleware' => ['web']], function () use ($path) {
                     'store',
                     'update',
                     'destroy',
-                ]
+                ],
+                'names' => [
+                    'index' => 'relation',
+                    'create' => 'relation.create',
+                    'edit' => 'relation.edit',
+                    'store' => 'relation.store',
+                    'show' => 'relation.show',
+                    'update' => 'relation.update',
+                    'destroy' => 'relation.destroy',
+                ],
             ]);
         
         });
