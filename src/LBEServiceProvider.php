@@ -11,7 +11,7 @@ class LBEServiceProvider extends ServiceProvider {
     public function boot(\Illuminate\Routing\Router $router) {
 
         $racine = dirname(__DIR__);
-
+        include $racine.'/Helpers/Table.php';
         // Get namespace
         $nameSpace = $this->app->getNamespace();
 
@@ -25,7 +25,7 @@ class LBEServiceProvider extends ServiceProvider {
         // });
         
         // Routes
-        $this->loadRoutesFrom($racine.'/routes/web.php');
+        $this->loadRoutesFrom($racine . '/routes/web.php');
 
         // $this->app->router->group(['namespace' => $nameSpace . 'Http\Controllers'], function()
         // {
